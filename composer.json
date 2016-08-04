@@ -1,0 +1,13 @@
+{
+    "name": "vb/lib-assetic-cache-busting-bundle",
+    "autoload": {
+        "psr-4": {
+            "Vb\\Bundle\\AsseticCacheBustingBundle\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/symfony": "^2.7",
+        "kriswallsmith/assetic": "^1.0"
+    }
+}
