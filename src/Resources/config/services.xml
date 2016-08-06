@@ -26,6 +26,7 @@
             <argument>%vb_assetic_cache_busting.hash_algorithm%</argument>
             <argument>%assetic.write_to%</argument>
             <argument>%assetic.variables%</argument>
+            <argument>%vb_assetic_cache_busting.enabled%</argument>
             <tag name="assetic.factory_worker"/>
         </service>
 

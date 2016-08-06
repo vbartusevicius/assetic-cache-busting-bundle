@@ -12,6 +12,9 @@
             <call method="setVersionStrategy">
                 <argument type="service" id="vb_assetic_cache_busting.asset_hash_version_strategy"/>
             </call>
+            <call method="setEnabled">
+                <argument>%vb_assetic_cache_busting.enabled%</argument>
+            </call>
         </service>
 
         <service id="assets.url_package" class="Vb\Bundle\AsseticCacheBustingBundle\Service\Asset\UrlPackage" abstract="true">
@@ -20,6 +23,9 @@
             <argument type="service" id="assets.context" />
             <call method="setVersionStrategy">
                 <argument type="service" id="vb_assetic_cache_busting.asset_hash_version_strategy"/>
+            </call>
+            <call method="setEnabled">
+                <argument>%vb_assetic_cache_busting.enabled%</argument>
             </call>
         </service>
     </services>

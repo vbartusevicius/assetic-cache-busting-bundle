@@ -20,6 +20,12 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('vb_assetic_cache_busting');
 
+        $rootNode
+            ->children()
+                ->booleanNode('enabled')->defaultTrue()->end()
+            ->end()
+        ;
+
         return $treeBuilder;
     }
 }

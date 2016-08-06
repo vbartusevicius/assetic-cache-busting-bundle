@@ -14,23 +14,27 @@ class HashWorker implements WorkerInterface
     private $hashAlgorithm;
     private $basePath;
     private $asseticVariables;
+    private $enabled;
 
     /**
      * @param FileHashManager $fileHashManager
      * @param string $hashAlgorithm
      * @param string $basePath
      * @param array $asseticVariables
+     * @param bool $enabled
      */
     public function __construct(
         FileHashManager $fileHashManager,
         $hashAlgorithm,
         $basePath,
-        array $asseticVariables
+        array $asseticVariables,
+        $enabled
     ) {
         $this->fileHashManager = $fileHashManager;
         $this->hashAlgorithm = $hashAlgorithm;
         $this->basePath = $basePath;
         $this->asseticVariables = $asseticVariables;
+        $this->enabled = $enabled;
     }
 
     /**
@@ -41,7 +45,7 @@ class HashWorker implements WorkerInterface
      */
     public function process(AssetInterface $asset, AssetFactory $factory)
     {
-        if (php_sapi_name() !== 'cli') {
+        if (php_sapi_name() !== 'cli' || !$this->enabled) {
             return null;
         }
 

@@ -12,13 +12,27 @@ class UrlPackage extends BaseUrlPackage
      */
     private $customVersionStrategy;
 
+    /**
+     * @var bool
+     */
+    private $enabled;
+
     public function setVersionStrategy(VersionStrategyInterface $versionStrategy)
     {
         $this->customVersionStrategy = $versionStrategy;
     }
 
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
     protected function getVersionStrategy()
     {
-        return $this->customVersionStrategy;
+        if ($this->enabled) {
+            return $this->customVersionStrategy;
+        }
+
+        return parent::getVersionStrategy();
     }
 }
